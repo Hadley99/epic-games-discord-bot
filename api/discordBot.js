@@ -33,6 +33,7 @@ export default async (req, res) => {
       });
     })
     .then(() => {
-      return res.send('Bot finished running!');
+      return new Response('Bot finished running!');
+      // return res.status(200)('Bot finished running!');
     });
 };
