@@ -5,7 +5,13 @@ const app = express();
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.get(
+// app.get(
+//   '/api/discordBot',
+//   discordBot
+//   // (req, res) => res.send('Discord Bot is running!')
+// );
+
+app.use(
   '/api/discordBot',
   discordBot
   // (req, res) => res.send('Discord Bot is running!')
