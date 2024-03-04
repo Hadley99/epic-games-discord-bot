@@ -4,7 +4,7 @@ import { getFreeGames, createEmbedObjects } from '../getGames.js';
 import { config } from 'dotenv';
 config();
 
-export const discordBot = async (req, res) => {
+export default async (req, res) => {
   const games = await getFreeGames();
   const freeGames = games.filter(({ isFreeGame }) => isFreeGame);
 
