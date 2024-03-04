@@ -28,11 +28,11 @@ export default async (req, res) => {
           })
           .then(async () => {
             console.log('ran');
-            return await client.destroy();
+            // return await client.destroy();
           });
       });
     })
     .then(() => {
-      return new res.send('Bot finished running!');
+      return res.send('Bot finished running!');
     });
 };
