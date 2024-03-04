@@ -13,18 +13,18 @@ const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages],
 });
 
-client.once('ready', () => {
-  console.log('Bot is ready!');
+client.login(process.env.BOT_TOKEN).then(() => {
+  client.once('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
 
-  const channel = client.channels.cache.get(process.env.CHANNEL_ID);
+    const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
-  channel.send({
-    embeds: embedGames,
+    channel
+      .send({
+        embeds: embedGames,
+      })
+      .then(() => {
+        client.destroy();
+      });
   });
 });
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
-
-client.login(process.env.BOT_TOKEN);
