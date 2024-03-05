@@ -11,7 +11,7 @@ app.get('/', (req, res) => res.send('Hello World!'));
 //   // (req, res) => res.send('Discord Bot is running!')
 // );
 
-app.use(
+app.get(
   '/api/discordBot',
   discordBot
   // (req, res) => res.send('Discord Bot is running!')
