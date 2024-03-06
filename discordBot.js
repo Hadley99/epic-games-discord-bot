@@ -1,5 +1,5 @@
 import { WebhookClient } from 'discord.js';
-import { getFreeGames, createEmbedObjects } from '../getGames.js';
+import { getFreeGames, createEmbedObjects } from './getGames.js';
 
 import { config } from 'dotenv';
 config();

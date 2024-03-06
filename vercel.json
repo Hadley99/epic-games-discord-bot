@@ -3,7 +3,7 @@
   "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
   "crons": [
     {
-      "path": "/api/discordBot",
+      "path": "/discordBot",
       "schedule": "50 9 * * *"
     }
   ]
