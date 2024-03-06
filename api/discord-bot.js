@@ -4,6 +4,7 @@ import { getFreeGames, createEmbedObjects } from '../helpers/getGames.js';
 import { config } from 'dotenv';
 config();
 
+export const revalidate = 0;
 export default async (req, res) => {
   try {
     const games = await getFreeGames();
