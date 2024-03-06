@@ -13,25 +13,24 @@ export default async (req, res) => {
 
     const embedGames = freeGames.map(createEmbedObjects);
     const webhook = new WebhookClient({
-      id: '1214411053161652286',
-      token:
-        '4ZBe4-DuwTv2hUR05p02v0GYyaLebEIA5X4IwisvVWtwGu9tIwZa3ladxy0_BMliiOyZ',
+      id: process.env.WEBHOOK_ID,
+      token: process.env.WEBHOOK_TOKEN,
     });
 
     console.log('🚀 ready to send to discord!! 🚀');
 
-    webhook
+    await webhook
       .send({
         embeds: embedGames,
       })
       .then(() => {
-        return res.send('successfully sent message to discord!🎉');
+        return res.send('🎉 successfully sent message to discord! 🎉');
       })
       .catch((error) => {
         throw error;
       });
   } catch (error) {
-    console.log('Oh no, error!', error);
+    console.log('😧 Oh no, error!', error);
     throw error;
   }
 };

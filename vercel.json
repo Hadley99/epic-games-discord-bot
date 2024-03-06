@@ -4,7 +4,7 @@
   "crons": [
     {
       "path": "/api/discord-bot",
-      "schedule": "59 9 * * *"
+      "schedule": "15 10 * * *"
     }
   ]
 }
