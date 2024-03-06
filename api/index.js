@@ -5,6 +5,6 @@ const app = express();
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.get('/api/discordBot', discordBot);
+app.get('/api/discord-bot', discordBot);
 
 export default app;
