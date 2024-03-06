@@ -1,5 +1,5 @@
 import express from 'express';
-import discordBot from './discord-bot';
+import discordBot from './discord-bot.js';
 
 const app = express();
 
