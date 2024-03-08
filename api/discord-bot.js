@@ -1,15 +1,12 @@
-import { Client } from 'node-appwrite';
 import { WebhookClient } from 'discord.js';
 import { getFreeGames, createEmbedObjects } from '../helpers/getGames.js';
 
 import { config } from 'dotenv';
 config();
 
-export default async ({ req, res, log, error }) => {
+export const revalidate = 0;
+export default async (req, res) => {
   try {
-    // You can log messages to the console
-    log('Hello, Logs!');
-
     const games = await getFreeGames();
     const freeGames = games.filter(({ isFreeGame }) => isFreeGame);
 
@@ -28,16 +25,13 @@ export default async ({ req, res, log, error }) => {
         embeds: embedGames,
       })
       .then(() => {
-        return res.json({
-          success: true,
-          message: '🎉 successfully sent message to discord! 🎉',
-        });
+        return res.send('🎉 successfully sent message to discord! 🎉');
       })
       .catch((error) => {
         throw error;
       });
   } catch (error) {
-    error('😧 Oh no, error!', error);
+    console.log('😧 Oh no, error!', error);
     throw error;
   }
 };
